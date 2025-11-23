@@ -1,4 +1,4 @@
-# QAバグトラッキングシステム - 使用ガイド
+# 00 Delivery Readme Bug Tracking
 
 **作成日**: 2025-10-14
 **対象**: cursor_to_notion (nit) プロジェクト
@@ -23,7 +23,7 @@ QA実行中に発見したバグ・改善点・テスト失敗を体系的に管
 
 ### 12. バグ登録
 ```
-/aipm/aipm_4_12_delivery_バグ登録
+/aipm/aipm_4_12_delivery_bug_register
 ```
 
 **使用タイミング**: QA実行中にバグ・改善点を発見した直後
@@ -59,7 +59,7 @@ QA実行中に発見したバグ・改善点・テスト失敗を体系的に管
 
 ### 13. バグステータス更新
 ```
-/aipm/aipm_4_13_delivery_バグステータス更新
+/aipm/aipm_4_13_delivery_bug_status_update
 ```
 
 **使用タイミング**: バグ修正・検証後、ステータスを更新したい時
@@ -92,7 +92,7 @@ New → Open → In Progress → Fixed → Verified → Closed
 
 ### 14. バグレポート生成
 ```
-/aipm/aipm_4_14_delivery_バグレポート生成
+/aipm/aipm_4_14_delivery_bug_report_generate
 ```
 
 **使用タイミング**: 
@@ -120,7 +120,7 @@ New → Open → In Progress → Fixed → Verified → Closed
 
 ### 15. リリース判定
 ```
-/aipm/aipm_4_15_delivery_リリース判定
+/aipm/aipm_4_15_delivery_release_decision
 ```
 
 **使用タイミング**: QA完了後、リリース可否を最終判断する時
@@ -185,7 +185,7 @@ documents/11_QA実行/bug_tracking/
 **状況**: scenario1_new_project実行中、`nit init`の引数エラーが不親切と気づいた
 
 **手順**:
-1. `/aipm/aipm_4_12_delivery_バグ登録` を実行
+1. `/aipm/aipm_4_12_delivery_bug_register` を実行
 2. 対話的に入力:
    - type: improvement
    - title: nit initの引数エラーメッセージ改善
@@ -207,7 +207,7 @@ documents/11_QA実行/bug_tracking/
 **状況**: IMP-002（依存関係不明確）を修正完了
 
 **手順**:
-1. `/aipm/aipm_4_13_delivery_バグステータス更新` を実行
+1. `/aipm/aipm_4_13_delivery_bug_status_update` を実行
 2. 対話的に入力:
    - Bug ID: IMP-002
    - 新ステータス: fixed
@@ -227,14 +227,14 @@ documents/11_QA実行/bug_tracking/
 **状況**: 全QA完了、リリース判定したい
 
 **手順**:
-1. `/aipm/aipm_4_14_delivery_バグレポート生成` を実行
+1. `/aipm/aipm_4_14_delivery_bug_report_generate` を実行
    - サマリーレポート確認
    - Critical/High: 1件（IMP-002）→ リリース不可判定
 2. IMP-002を修正
-3. `/aipm/aipm_4_13_delivery_バグステータス更新` でfixedに
-4. `/aipm/aipm_4_14_delivery_バグレポート生成` を再実行
+3. `/aipm/aipm_4_13_delivery_bug_status_update` でfixedに
+4. `/aipm/aipm_4_14_delivery_bug_report_generate` を再実行
    - Critical/High: 0件 → リリース可判定
-5. `/aipm/aipm_4_15_delivery_リリース判定` を実行
+5. `/aipm/aipm_4_15_delivery_release_decision` を実行
    - RELEASE_DECISION_REPORT.md生成
    - リリース承認推奨
 
@@ -292,7 +292,6 @@ python3 generate_bug_report.py
 **作成日**: 2025-10-14  
 **最終更新**: 2025-10-14  
 **バージョン**: v1.0
-
 
 
 
