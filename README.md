@@ -64,11 +64,11 @@
 # あなたのプロジェクトフォルダで実行
 cd /path/to/your/project
 
-# .cursor/commands フォルダを作成（なければ）
-mkdir -p .cursor/commands
+# .claude/commands フォルダを作成（なければ）
+mkdir -p .claude/commands
 
 # AIPMシステムをクローン
-git clone https://github.com/your-repo/aipm-commands .cursor/commands/aipm
+git clone https://github.com/your-repo/aipm-commands .claude/commands
 ```
 
 #### 新しいプロジェクトとして始める場合
@@ -77,26 +77,22 @@ git clone https://github.com/your-repo/aipm-commands .cursor/commands/aipm
 mkdir my-awesome-project
 cd my-awesome-project
 
-# .cursor/commands フォルダを作成
-mkdir -p .cursor/commands
+# .claude/commands フォルダを作成
+mkdir -p .claude/commands
 
 # AIPMシステムをクローン
-git clone https://github.com/your-repo/aipm-commands .cursor/commands/aipm
+git clone https://github.com/your-repo/aipm-commands .claude/commands
 ```
 
 #### 📁 正しい配置構造
 ```
 your-project/
-├── .cursor/
-│   └── commands/
-│       └── aipm/           ← ここに配置
-│           ├── README.md
-│           ├── 0_initialize/
-│           ├── 1_sense/
-│           ├── 2_focus/
-│           ├── 3_discovery/
-│           ├── 4_delivery/
-│           └── 9_hackathon/  ← ハッカソン用コマンド
+├── .claude/
+│   └── commands/           ← ここに配置
+│       ├── README.md
+│       ├── aipm_0_00_initialize_プロジェクト開始.md
+│       ├── aipm_1_01_sense_競合調査.md
+│       ├── ...（その他のコマンドmd）
 ├── Flow/                   ← 作業ファイルが作られる
 ├── Stock/                  ← 完成品が保存される
 └── （あなたのプロジェクトファイル）
@@ -113,14 +109,14 @@ your-project/
 ### ⚠️ トラブルシューティング
 
 #### コマンドが表示されない場合
-1.  `.cursor/commands/aipm/` フォルダが正しく配置されているか確認
+1.  `.claude/commands/` フォルダが正しく配置されているか確認
 2.  Cursorを再起動
 3.  プロジェクトフォルダを再度開く
 
 #### 権限エラーが出る場合
 ```bash
 # フォルダの権限を確認・修正
-chmod -R 755 .cursor/commands/aipm
+chmod -R 755 .claude/commands
 ```
 
 
@@ -137,7 +133,7 @@ chmod -R 755 .cursor/commands/aipm
 
 #### **朝10:02 - プロジェクト開始&ペルソナ作成（15分）**
 ```
-ユーザー: /aipm/0_initialize/00_プロジェクト開始
+ユーザー: /aipm_0_00_initialize_プロジェクト開始
 
 AI: ✅ プロジェクト初期化完了！
     📁 作業フォルダ作成
@@ -145,7 +141,7 @@ AI: ✅ プロジェクト初期化完了！
     ⚙️ 設定ファイル準備
 
 
-ユーザー: /aipm/3_discovery/01_ペルソナ作成
+ユーザー: /aipm_3_01_discovery_ペルソナ作成
 
 AI: ペルソナ情報を教えてください
 
@@ -159,7 +155,7 @@ AI: ✅ さくらさん（35歳女性・共働きママ）のペルソナ完成�
 
 #### **朝10:20 - 課題定義（20分）**
 ```
-ユーザー: /aipm/3_discovery/02_課題定義
+ユーザー: /aipm_3_02_discovery_課題定義
 
 AI: ✅ 課題定義完了！
     🎯 特定された3つの主要課題:
@@ -172,7 +168,7 @@ AI: ✅ 課題定義完了！
 
 #### **朝10:45 - ソリューションマップ（25分）**
 ```
-ユーザー: /aipm/3_discovery/03_ソリューションマップ
+ユーザー: /aipm_3_03_discovery_ソリューションマップ
 
 AI: ✅ ソリューションマップ完了！
     🎯 3つのMVPソリューション:
@@ -187,7 +183,7 @@ AI: ✅ ソリューションマップ完了！
 
 #### **昼11:15 - ストーリーマップ（30分）**
 ```
-ユーザー: /aipm/3_discovery/04_ストーリーマップ
+ユーザー: /aipm_3_04_discovery_ストーリーマップ
 
 AI: ✅ ストーリーマップ完了！
     🎯 3つのユーザーストーリー:
@@ -202,7 +198,7 @@ AI: ✅ ストーリーマップ完了！
 
 #### **昼12:00 - 開発タスク分解（20分）**
 ```
-ユーザー: /aipm/4_delivery/07_開発タスク分解
+ユーザー: /aipm_4_07_delivery_開発タスク分解
 
 AI: ✅ 開発タスク分解完了！
     🔧 10個のタスク（HTML/CSS/JS構成）:
@@ -215,8 +211,8 @@ AI: ✅ 開発タスク分解完了！
 
 #### **午後12:30-15:00 - 実装・検証（2時間30分）**
 ```
-ユーザー: /aipm/4_delivery/08_チケット開始
-ユーザー: /aipm/4_delivery/09_チケット実行と検証
+ユーザー: /aipm_4_08_delivery_チケット開始
+ユーザー: /aipm_4_09_delivery_チケット実行と検証
 
 AI: T_COMMON_ENV から順次実装
     ✅ index.html（基本HTML構造）
@@ -237,21 +233,20 @@ AI: ✅ MVP完了！進捗率100%
 
 #### **午後15:30 - 提出・発表準備（30分）**
 ```
-ユーザー: /aipm/9_hackathon/Marpスライド生成
+ユーザー: /aipm_9_01_hackathon_Marpスライド生成
 
 AI: ✅ プレゼンスライド完成！
     📁 slides_mvp.marp.md - 13枚のストーリー性あるスライド
 
-ユーザー: /aipm/9_hackathon/成果物パッケージング
+ユーザー: /aipm_9_02_hackathon_成果物パッケージング
 
 AI: ✅ 提出パッケージ作成完了！
     📁 全成果物を整理・パッケージング
 
-ユーザー: /aipm/9_hackathon/GitHub提出
+ユーザー: /aipm_9_00_hackathon_GoogleDrive提出
 
-AI: ✅ GitHub提出完了！
-    🔗 個別リポジトリ: SmartTodo-Mama-submit_2025-09-09
-    🔗 共有リポジトリPR: https://github.com/livyn-inc/aipm-hackathon-share/pull/3
+AI: ✅ 提出用共有リンクを作成しました！（例）
+    🔗 共有リンク: https://github.com/livyn-inc/aipm-hackathon-share/pull/3
 ```
 
 ### 🏆 ハッカソン成果：3時間でフル機能MVP完成
@@ -274,7 +269,7 @@ AI: ✅ GitHub提出完了！
 ![alt text](images/1.jpeg)
 
 ```
-miyatti: /aipm/0_initialize/00_プロジェクト開始
+miyatti: /aipm_0_00_initialize_プロジェクト開始
 miyatti: PdM用のタスク管理ツール、仕事が大変だから、今日中に作る、おまかせ
 
 AI: ✅ プロジェクト初期化完了！
@@ -290,7 +285,7 @@ AI: ✅ プロジェクト初期化完了！
 ![alt text](images/2.jpeg)
 
 ```
-miyatti: /aipm/1_sense/01_競合調査
+miyatti: /aipm_1_01_sense_競合調査
 AI: 競合調査を実施します。どんな競合を調べたいですか？
 miyatti: おまかせ
 
@@ -302,7 +297,7 @@ AI: ✅ 主要5社の詳細分析完了！
 ```
 
 ```
-miyatti: /aipm/1_sense/02_顧客調査
+miyatti: /aipm_1_02_sense_顧客調査
 miyatti: おまかせ
 
 AI: ✅ PdMの核心的課題を発見！
@@ -322,7 +317,7 @@ AI: ✅ PdMの核心的課題を発見！
 ![alt text](images/3.jpeg)
 
 ```
-miyatti: /aipm/1_sense/05_sense__インタビュー分析（個別）
+miyatti: /aipm_1_05_sense_インタビュー分析（個別）
 
 AI: 仮想インタビューログから田中さんの情報を推定しました：
     - 参加者ID/イニシャル: 田中さん
@@ -349,7 +344,7 @@ AI: ✅ 個別分析レポート完成！
 #### **朝10:20 - 追加仮想インタビュー生成**
 
 ```
-miyatti: /aipm/1_sense/90_sense__仮想インタビューログ生成 他のパターン
+miyatti: /aipm_1_90_sense_仮想インタビューログ生成
 
 AI: 異なる視点（賛同/中立/否定/想定外）のパターンを生成します。
 
@@ -376,7 +371,7 @@ AI: ✅ 追加パターン完成！
 #### **朝10:25 - 個別インタビュー分析（佐藤さん）**
 
 ```
-miyatti: /aipm/1_sense/05_sense__インタビュー分析（個別）
+miyatti: /aipm_1_05_sense_インタビュー分析（個別）
 
 AI: 追加の仮想インタビューログから佐藤さんの情報を推定しました：
     - 参加者ID/イニシャル: 佐藤さん
@@ -403,7 +398,7 @@ AI: ✅ 佐藤さん個別分析完了！
 #### **朝10:30 - リサーチサマリー（全体統合）**
 
 ```
-miyatti: /aipm/1_sense/06_sense__リサーチサマリー（全体）
+miyatti: /aipm_1_06_sense_リサーチサマリー（全体）
 
 AI: これまでに作成した調査・分析ファイルから以下のソースを推定しました：
     - 競合調査: sense_competitor_research.md
@@ -435,7 +430,7 @@ AI: ✅ リサーチサマリー（全体）完了！
 ![alt text](images/4.jpeg)
 
 ```
-miyatti: /aipm/1_sense/07_sense__オポチュニティ仮説抽出
+miyatti: /aipm_1_07_sense_オポチュニティ仮説抽出
 
 AI: これまでのSense調査結果から以下のソースを推定しました：
     - リサーチサマリー: draft_research_summary.md
@@ -465,7 +460,7 @@ AI: ✅ オポチュニティ仮説抽出完了！
 ![alt text](images/5.jpeg)
 
 ```
-miyatti: /aipm/2_focus/01_focus__プロダクト定義
+miyatti: /aipm_2_01_focus_プロダクト定義
 
 AI: Senseフェーズの調査結果から以下の情報を推定しました：
     - プロダクト/プログラム名: PdM用のタスク管理ツール → CrossPM（複数プロジェクト横断管理の意味）
@@ -484,7 +479,7 @@ AI: ✅ Focus: プロダクト定義完了！
 #### **朝11:00 - 市場規模推定**
 
 ```
-miyatti: /aipm/2_focus/02_focus__市場規模推定
+miyatti: /aipm_2_02_focus_市場規模推定
 
 AI: プロダクト定義から以下の情報を推定しました：
     - プロジェクト名: CrossPM
@@ -512,7 +507,7 @@ AI: ✅ Focus: 市場規模推定完了！
 #### **朝11:10 - ラフロードマップ作成**
 
 ```
-miyatti: /aipm/2_focus/03_focus__ラフロードマップ作成
+miyatti: /aipm_2_03_focus_ラフロードマップ作成
 
 AI: プロダクト定義と市場規模推定から以下の情報を推定しました：
     期間: 2025年Q4〜2026年Q3（12ヶ月）
@@ -536,7 +531,7 @@ AI: ✅ Focus: ラフロードマップ作成完了！
 ![alt text](images/8.jpeg)
 
 ```
-miyatti: /aipm/2_focus/04_focus__OKR作成
+miyatti: /aipm_2_04_focus_OKR作成
 
 AI: ロードマップから以下のOKR情報を推定しました：
     - プログラム/プロジェクト名: CrossPM
@@ -556,7 +551,7 @@ AI: ✅ Focus: OKR作成完了！
 ![alt text](images/9.jpeg)
 
 ```
-miyatti: /aipm/2_focus/05_focus__リーンキャンバス作成
+miyatti: /aipm_2_05_focus_リーンキャンバス作成
 
 AI: Sense/Focusフェーズの成果物から以下の情報を推定しました：
     Problem（顧客の主要課題）:
@@ -585,7 +580,7 @@ AI: ✅ リーンキャンバス作成完了！
 ![alt text](images/10.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/01_Discovery__ペルソナ作成
+miyatti: /aipm_3_01_discovery_ペルソナ作成
 
 AI: Senseフェーズの成果物から以下の情報を分析しました：
     推定ペルソナ候補: 中規模企業PdM（田中さんタイプ）
@@ -613,7 +608,7 @@ AI: ✅ 仮説駆動ペルソナ作成完了！
 ![alt text](images/11.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/02_Discovery__課題定義
+miyatti: /aipm_3_02_discovery_課題定義
 
 AI: ペルソナ体験マップとSense/Focusフェーズの成果物から課題候補を分析しました：
     PH1（朝の状況把握）の課題候補:
@@ -647,7 +642,7 @@ AI: ✅ 課題定義完了！
 ![alt text](images/12.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/03_Discovery__ソリューションマップ
+miyatti: /aipm_3_03_discovery_ソリューションマップ
 
 AI: 課題定義とオポチュニティから解決策候補を分析しました：
     課題とオポチュニティの対応関係:
@@ -676,7 +671,7 @@ AI: ✅ ソリューションマップ完了！
 ![alt text](images/13.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/04_Discovery__ストーリーマップ
+miyatti: /aipm_3_04_discovery_ストーリーマップ
 
 AI: ソリューションマップと課題定義から、PR→SL→STの連鎖を分析しました：
     PR→SL→STの初期チェーン:
@@ -710,7 +705,7 @@ AI: ✅ ストーリーマップ完了！
 ![alt text](images/14.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/05_Discovery__UIワイヤーフレーム
+miyatti: /aipm_3_05_discovery_UIワイヤーフレーム
 
 AI: ストーリーマップで設計したMVP機能を具体的な画面設計とワイヤーフレームに落とし込みます。
     主要ストーリー:
@@ -741,7 +736,7 @@ AI: ✅ UIワイヤーフレーム完了！
 ![alt text](images/15.jpeg)
 
 ```
-miyatti: /aipm/3_discovery/06_Discovery__Drawioスクリーン生成
+miyatti: /aipm_3_06_discovery_Drawioスクリーン生成
 
 AI: UIワイヤーフレームで設計した3つの画面すべてを生成しますか？
 
@@ -771,7 +766,7 @@ AI: ✅ Draw.ioスクリーン生成完了！
 
 
 ```
-miyatti: /aipm/4_delivery/07_Delivery__開発タスク分解
+miyatti: /aipm_4_07_delivery_開発タスク分解
 miyatti: 今回はMVPとしてHTMLとCSSと標準のJSでできる範囲で実装したい
 
 AI: これまでのDiscoveryフェーズの成果物を分析して開発スコープを推定します。
@@ -804,7 +799,7 @@ AI: ✅ 開発タスク分解完了！
 ![alt text](images/17.jpeg)
 
 ```
-miyatti: /aipm/4_delivery/08_Delivery__チケット開始
+miyatti: /aipm_4_08_delivery_チケット開始
 
 AI: 推奨実行順: Common → Stories → Non-Functional
     まず T_COMMON_ENV → T_COMMON_STORAGE を完了してからストーリーに進んでください。
@@ -822,7 +817,7 @@ AI: ✅ T_COMMON_ENV のチケット開始セットを生成しました:
 ![alt text](images/18.jpeg)
 
 ```
-miyatti: /aipm/4_delivery/09_Delivery__チケット実行と検証
+miyatti: /aipm_4_09_delivery_チケット実行と検証
 
 AI: T_COMMON_ENVの実装を開始します。
     index.html/styles.css/app.js の雛形を作成し、受け入れ基準を満たす最低限の表示・操作・ログを実装します。
@@ -843,7 +838,7 @@ miyatti: OK
 #### **午後14:10 - チケット開始（T\_COMMON\_LAYOUT）**
 
 ```
-miyatti: /aipm/4_delivery/08_Delivery__チケット開始
+miyatti: /aipm_4_08_delivery_チケット開始
 
 AI: ✅ T_COMMON_LAYOUT のチケット開始セットを生成しました:
     📁 work_T_COMMON_LAYOUT__design.md
@@ -858,7 +853,7 @@ AI: ✅ T_COMMON_LAYOUT のチケット開始セットを生成しました:
 ![alt text](images/18_2.jpeg)
 
 ```
-miyatti: /aipm/4_delivery/09_Delivery__チケット実行と検証
+miyatti: /aipm_4_09_delivery_チケット実行と検証
 
 AI: T_COMMON_LAYOUTの実装を反映します。
     index.htmlに.containerを追加し、styles.cssに共通コンテナ/レスポンシブを追記、app.jsにレイアウト観測ログを組み込みます。
@@ -879,7 +874,7 @@ AI: T_COMMON_LAYOUTの実装を反映します。
 ![alt text](images/19.png)
 
 ```
-miyatti: /aipm/4_delivery/10_Delivery__タスクリファイン
+miyatti: /aipm_4_10_delivery_タスクリファイン
 
 AI: 現在の成果物を読み直し、進捗を可視化します。
     
@@ -898,7 +893,7 @@ AI: 現在の成果物を読み直し、進捗を可視化します。
 #### **午後14:35 - チケット開始（T\_COMMON\_STORAGE）**
 
 ```
-miyatti: /aipm/4_delivery/08_Delivery__チケット開始
+miyatti: /aipm_4_08_delivery_チケット開始
 
 AI: ✅ T_COMMON_STORAGE のチケット開始セットを生成しました:
     📁 work_T_COMMON_STORAGE__design.md
@@ -911,7 +906,7 @@ AI: ✅ T_COMMON_STORAGE のチケット開始セットを生成しました:
 #### **午後14:40 - T\_COMMON\_STORAGE実装・検証**
 
 ```
-miyatti: /aipm_hackathon/09_実装__チケット実行と検証
+miyatti: /aipm_4_09_delivery_チケット実行と検証
 
 AI: T_COMMON_STORAGEを実装します。
     app.jsにStorageUtilを追加し、保存/初期ロード処理を置換します。
@@ -926,7 +921,7 @@ AI: T_COMMON_STORAGEを実装します。
 #### **午後14:55 - チケット開始（T\_COMMON\_STATE）**
 
 ```
-miyatti: /aipm_hackathon/08_実装__チケット開始
+miyatti: /aipm_4_08_delivery_チケット開始
 
 AI: 実行する task_id を指定してください（推奨: T_COMMON_STATE）
 
@@ -939,7 +934,7 @@ AI: ✅ T_COMMON_STATE のチケット開始セットを作成しました。
 #### **午後15:00 - T\_COMMON\_STATE実装・検証**
 
 ```
-miyatti: /aipm/4_delivery/09_Delivery__チケット実行と検証
+miyatti: /aipm_4_09_delivery_チケット実行と検証
 
 AI: T_COMMON_STATE を実装します。
     app.js に createStore と EventBus を追加し、タブ切替と追加時のイベント発火、状態変更ログを組み込みます。
@@ -982,97 +977,97 @@ AI: ✅ ログ出力を修正しました！
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/0_initialize/00_プロジェクト開始` | プロジェクトの初期化とフォルダ構造作成 | 🚀 **最初に必ず実行** - 新しいアイデアを形にしたいとき |
+| `/aipm_0_00_initialize_プロジェクト開始` | プロジェクトの初期化とフォルダ構造作成 | 🚀 **最初に必ず実行** - 新しいアイデアを形にしたいとき |
 
 ### 🔍 1. Senseフェーズ（情報収集・発散）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/1_sense/01_競合調査` | Web検索ベースの競合分析・比較マトリクス作成 | 💡 「どんな競合がいるんだろう？」「差別化ポイントは？」 |
-| `/aipm/1_sense/02_顧客調査` | ターゲットユーザーのニーズ・課題調査 | 👥 「ユーザーは何に困ってる？」「本当にニーズある？」 |
-| `/aipm/1_sense/03_インタビュー設計` | UXリサーチ用インタビューガイド作成 | 🎤 「実際にユーザーの声を聞きたい」「何を質問すればいい？」 |
-| `/aipm/1_sense/04_リクルーティング計画` | インタビュー対象者の募集計画 | 📢 「どうやってインタビュー相手を見つける？」 |
-| `/aipm/1_sense/05_インタビュー分析（個別）` | 1件のインタビュー結果を構造化して分析 | 📝 「インタビューしたけど、どう整理すればいい？」 |
-| `/aipm/1_sense/06_リサーチサマリー（全体）` | 複数の調査結果を統合・洞察抽出 | 🔗 「調査結果をまとめて、全体像を把握したい」 |
-| `/aipm/1_sense/07_オポチュニティ仮説抽出` | 機会仮説の構造化リスト作成 | 💎 「調査結果から、どんなチャンスが見える？」 |
-| `/aipm/1_sense/90_仮想インタビューログ生成` | 発散用のシミュレーションインタビュー | 🎭 「実際のインタビュー前に、パターンを想定したい」 |
+| `/aipm_1_01_sense_競合調査` | Web検索ベースの競合分析・比較マトリクス作成 | 💡 「どんな競合がいるんだろう？」「差別化ポイントは？」 |
+| `/aipm_1_02_sense_顧客調査` | ターゲットユーザーのニーズ・課題調査 | 👥 「ユーザーは何に困ってる？」「本当にニーズある？」 |
+| `/aipm_1_03_sense_インタビュー設計` | UXリサーチ用インタビューガイド作成 | 🎤 「実際にユーザーの声を聞きたい」「何を質問すればいい？」 |
+| `/aipm_1_04_sense_リクルーティング計画` | インタビュー対象者の募集計画 | 📢 「どうやってインタビュー相手を見つける？」 |
+| `/aipm_1_05_sense_インタビュー分析（個別）` | 1件のインタビュー結果を構造化して分析 | 📝 「インタビューしたけど、どう整理すればいい？」 |
+| `/aipm_1_06_sense_リサーチサマリー（全体）` | 複数の調査結果を統合・洞察抽出 | 🔗 「調査結果をまとめて、全体像を把握したい」 |
+| `/aipm_1_07_sense_オポチュニティ仮説抽出` | 機会仮説の構造化リスト作成 | 💎 「調査結果から、どんなチャンスが見える？」 |
+| `/aipm_1_90_sense_仮想インタビューログ生成` | 発散用のシミュレーションインタビュー | 🎭 「実際のインタビュー前に、パターンを想定したい」 |
 
 ### 🎯 2. Focusフェーズ（収束・戦略決定）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/2_focus/01_プロダクト定義` | Mission/Vision/Value・ポジションステートメント作成 | 🚀 「何を作るか、なぜ作るかを明確にしたい」 |
-| `/aipm/2_focus/02_市場規模推定` | TAM/SAM/SOM計算・Google Sheets連携 | 📈 「どのくらい売れる？市場性はある？」 |
-| `/aipm/2_focus/03_ラフロードマップ作成` | 四半期/週粒度の開発スケジュール | 📅 「いつまでに何を作る？大まかなスケジュールは？」 |
-| `/aipm/2_focus/04_OKR作成` | 目標と成果指標の設定 | 🎯 「成功をどう測る？具体的な目標は？」 |
-| `/aipm/2_focus/05_リーンキャンバス作成` | ビジネスモデルの統合整理 | 🗺️ 「ビジネス全体を1枚で整理したい」 |
+| `/aipm_2_01_focus_プロダクト定義` | Mission/Vision/Value・ポジションステートメント作成 | 🚀 「何を作るか、なぜ作るかを明確にしたい」 |
+| `/aipm_2_02_focus_市場規模推定` | TAM/SAM/SOM計算・Google Sheets連携 | 📈 「どのくらい売れる？市場性はある？」 |
+| `/aipm_2_03_focus_ラフロードマップ作成` | 四半期/週粒度の開発スケジュール | 📅 「いつまでに何を作る？大まかなスケジュールは？」 |
+| `/aipm_2_04_focus_OKR作成` | 目標と成果指標の設定 | 🎯 「成功をどう測る？具体的な目標は？」 |
+| `/aipm_2_05_focus_リーンキャンバス作成` | ビジネスモデルの統合整理 | 🗺️ 「ビジネス全体を1枚で整理したい」 |
 
 ### 🔬 3. Discoveryフェーズ（仮説駆動設計）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/3_discovery/01_ペルソナ作成` | ターゲットユーザーの具体化・体験マップ | 👤 「具体的にどんな人が使う？どんな1日を過ごしてる？」 |
-| `/aipm/3_discovery/02_課題定義` | フェーズ別の問題分析と構造化 | 😤 「ユーザーのどの場面で、どんな問題が起きてる？」 |
-| `/aipm/3_discovery/03_ソリューションマップ` | 課題に対する解決策設計・MVP優先順位 | 💡 「課題をどう解決する？何から作る？」 |
-| `/aipm/3_discovery/04_ストーリーマップ` | ユーザーストーリーと受け入れ基準・開発計画 | 📖 「機能を開発可能な単位に分解したい」 |
-| `/aipm/3_discovery/05_UIワイヤーフレーム` | 画面設計・レスポンシブ対応・アクセシビリティ | 🎨 「どんな画面？どう操作する？」 |
-| `/aipm/3_discovery/06_Drawioスクリーン生成` | Draw.io形式の詳細設計図・編集可能ワイヤー | 📐 「きれいな設計図が欲しい」「チームで共有したい」 |
+| `/aipm_3_01_discovery_ペルソナ作成` | ターゲットユーザーの具体化・体験マップ | 👤 「具体的にどんな人が使う？どんな1日を過ごしてる？」 |
+| `/aipm_3_02_discovery_課題定義` | フェーズ別の問題分析と構造化 | 😤 「ユーザーのどの場面で、どんな問題が起きてる？」 |
+| `/aipm_3_03_discovery_ソリューションマップ` | 課題に対する解決策設計・MVP優先順位 | 💡 「課題をどう解決する？何から作る？」 |
+| `/aipm_3_04_discovery_ストーリーマップ` | ユーザーストーリーと受け入れ基準・開発計画 | 📖 「機能を開発可能な単位に分解したい」 |
+| `/aipm_3_05_discovery_UIワイヤーフレーム` | 画面設計・レスポンシブ対応・アクセシビリティ | 🎨 「どんな画面？どう操作する？」 |
+| `/aipm_3_06_discovery_Drawioスクリーン生成` | Draw.io形式の詳細設計図・編集可能ワイヤー | 📐 「きれいな設計図が欲しい」「チームで共有したい」 |
 
 ### 🛠️ 4. Deliveryフェーズ（実装・検証）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/4_delivery/07_開発タスク分解` | 実装タスクの細分化・依存関係・工数見積もり | 🔧 「実際に作るには何をすればいい？どのくらいかかる？」 |
-| `/aipm/4_delivery/08_チケット開始` | 個別タスクの作業環境準備・設計資料整理 | 📋 「この機能を実装したい」「何から手をつける？」 |
-| `/aipm/4_delivery/09_チケット実行と検証` | 実装支援・受け入れテスト・動作確認 | ✅ 「実際にコードを書いて、動くかテストしたい」 |
-| `/aipm/4_delivery/10_タスクリファイン` | 進捗レビュー・タスク再構成・優先順位調整 | 📊 「今どのくらい進んだ？次に何をする？」 |
+| `/aipm_4_07_delivery_開発タスク分解` | 実装タスクの細分化・依存関係・工数見積もり | 🔧 「実際に作るには何をすればいい？どのくらいかかる？」 |
+| `/aipm_4_08_delivery_チケット開始` | 個別タスクの作業環境準備・設計資料整理 | 📋 「この機能を実装したい」「何から手をつける？」 |
+| `/aipm_4_09_delivery_チケット実行と検証` | 実装支援・受け入れテスト・動作確認 | ✅ 「実際にコードを書いて、動くかテストしたい」 |
+| `/aipm_4_10_delivery_タスクリファイン` | 進捗レビュー・タスク再構成・優先順位調整 | 📊 「今どのくらい進んだ？次に何をする？」 |
 
 ### 🔄 5. Sense2フェーズ（検証・改善）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/5_sense2/00_プロダクトメトリクス` | 成果指標の設計・測定方法定義 | 📊 「作ったアプリの効果をどう測る？」 |
-| `/aipm/5_sense2/01_インタビュー設計` | 検証用インタビューガイド作成 | 🔍 「実際に使ってもらって、感想を聞きたい」 |
-| `/aipm/5_sense2/02_インタビュー分析（個別）` | ユーザーフィードバックの個別分析 | 📝 「ユーザーの反応をちゃんと分析したい」 |
-| `/aipm/5_sense2/03_リサーチサマリー（全体）` | 検証結果の統合・改善点抽出 | 🔗 「フィードバックから何がわかった？次の改善は？」 |
-| `/aipm/5_sense2/04_オポチュニティ仮説抽出` | 新たな機会の発見・次期機能検討 | 💎 「次に何を作ればいい？新しいチャンスは？」 |
+| `/aipm_5_00_sense2_プロダクトメトリクス` | 成果指標の設計・測定方法定義 | 📊 「作ったアプリの効果をどう測る？」 |
+| `/aipm_5_01_sense2_インタビュー設計` | 検証用インタビューガイド作成 | 🔍 「実際に使ってもらって、感想を聞きたい」 |
+| `/aipm_5_02_sense2_インタビュー分析（個別）` | ユーザーフィードバックの個別分析 | 📝 「ユーザーの反応をちゃんと分析したい」 |
+| `/aipm_5_03_sense2_リサーチサマリー（全体）` | 検証結果の統合・改善点抽出 | 🔗 「フィードバックから何がわかった？次の改善は？」 |
+| `/aipm_5_04_sense2_オポチュニティ仮説抽出` | 新たな機会の発見・次期機能検討 | 💎 「次に何を作ればいい？新しいチャンスは？」 |
 
 ### 🎯 6. Focus2フェーズ（本格展開計画）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/6_focus2/01_ロードマップ設計` | 詳細な開発ロードマップ・マイルストーン | 📅 「本格的なスケジュールを立てたい」 |
-| `/aipm/6_focus2/02_WBS作成` | 作業分解構造・プロジェクト管理 | 📊 「プロジェクト全体を体系的に管理したい」 |
-| `/aipm/6_focus2/03_リスク分析` | リスク識別・対策・監視計画 | ⚠️ 「何が失敗要因？どう対策する？」 |
+| `/aipm_6_01_focus2_ロードマップ設計` | 詳細な開発ロードマップ・マイルストーン | 📅 「本格的なスケジュールを立てたい」 |
+| `/aipm_6_02_focus2_WBS作成` | 作業分解構造・プロジェクト管理 | 📊 「プロジェクト全体を体系的に管理したい」 |
+| `/aipm_6_03_focus2_リスク分析` | リスク識別・対策・監視計画 | ⚠️ 「何が失敗要因？どう対策する？」 |
 
 ### 📖 7. Discovery2フェーズ（詳細設計）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/7_discovery2/01_PRD作成` | プロダクト要求仕様書・詳細機能定義 | 📋 「開発チームに渡す詳細な仕様書が欲しい」 |
-| `/aipm/7_discovery2/02_DesignDoc作成` | 技術設計書・アーキテクチャ | 🏗️ 「システムの技術的な設計を整理したい」 |
+| `/aipm_7_01_discovery2_PRD作成` | プロダクト要求仕様書・詳細機能定義 | 📋 「開発チームに渡す詳細な仕様書が欲しい」 |
+| `/aipm_7_02_discovery2_DesignDoc作成` | 技術設計書・アーキテクチャ | 🏗️ 「システムの技術的な設計を整理したい」 |
 
 ### 🚀 8. Delivery2フェーズ（本格開発）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/8_delivery2/01_バックログ初期化` | 開発バックログ・スプリント計画 | 📋 「アジャイル開発を始めたい」 |
-| `/aipm/8_delivery2/02_スプリントゴール` | スプリント目標・成果定義 | 🎯 「今回のスプリントで何を達成する？」 |
-| `/aipm/8_delivery2/03_スプリントレビュー` | スプリント振り返り・改善点抽出 | 🔄 「スプリントの成果と課題をまとめたい」 |
-| `/aipm/8_delivery2/04_開発環境セットアップ` | 開発環境・ツール準備 | ⚙️ 「開発を始める環境を整えたい」 |
-| `/aipm/8_delivery2/05_開発計画作成` | 詳細な開発計画・リソース配分 | 📊 「誰がいつまでに何を作る？」 |
-| `/aipm/8_delivery2/06_実装順序計画` | 機能実装の順序・依存関係 | 🔗 「どの順番で機能を作ればいい？」 |
-| `/aipm/8_delivery2/07_ストーリー実装` | 個別ストーリーの実装支援 | 💻 「この機能を実際に作りたい」 |
-| `/aipm/8_delivery2/08_記事執筆` | 技術記事・ドキュメント作成 | 📝 「作ったものを記事にして共有したい」 |
-| `/aipm/8_delivery2/09_成果物確認` | 最終成果物の品質確認・テスト | ✅ 「全部完成した？品質は大丈夫？」 |
+| `/aipm_8_01_delivery2_バックログ初期化` | 開発バックログ・スプリント計画 | 📋 「アジャイル開発を始めたい」 |
+| `/aipm_8_02_delivery2_スプリントゴール` | スプリント目標・成果定義 | 🎯 「今回のスプリントで何を達成する？」 |
+| `/aipm_8_03_delivery2_スプリントレビュー` | スプリント振り返り・改善点抽出 | 🔄 「スプリントの成果と課題をまとめたい」 |
+| `/aipm_8_04_delivery2_開発環境セットアップ` | 開発環境・ツール準備 | ⚙️ 「開発を始める環境を整えたい」 |
+| `/aipm_8_05_delivery2_開発計画作成` | 詳細な開発計画・リソース配分 | 📊 「誰がいつまでに何を作る？」 |
+| `/aipm_8_06_delivery2_実装順序計画` | 機能実装の順序・依存関係 | 🔗 「どの順番で機能を作ればいい？」 |
+| `/aipm_8_07_delivery2_ストーリー実装` | 個別ストーリーの実装支援 | 💻 「この機能を実際に作りたい」 |
+| `/aipm_8_08_delivery2_記事執筆` | 技術記事・ドキュメント作成 | 📝 「作ったものを記事にして共有したい」 |
+| `/aipm_8_09_delivery2_成果物確認` | 最終成果物の品質確認・テスト | ✅ 「全部完成した？品質は大丈夫？」 |
 
 ### 🏆 9. Hackathonフェーズ（発表・提出）
 
 | コマンド | 目的 | いつ使う？ |
 | --- | --- | --- |
-| `/aipm/9_hackathon/Marpスライド生成` | プレゼンテーション資料作成 | 📊 「発表用のスライドを作りたい」 |
-| `/aipm/9_hackathon/成果物パッケージング` | 成果物の整理・提出準備 | 📦 「作ったものをきれいにまとめたい」 |
-| `/aipm/9_hackathon/GitHub提出` | GitHubリポジトリ作成・公開 | 🌐 「GitHubで世界に公開したい」 |
+| `/aipm_9_01_hackathon_Marpスライド生成` | プレゼンテーション資料作成 | 📊 「発表用のスライドを作りたい」 |
+| `/aipm_9_02_hackathon_成果物パッケージング` | 成果物の整理・提出準備 | 📦 「作ったものをきれいにまとめたい」 |
+| `/aipm_9_00_hackathon_GoogleDrive提出` | Google Drive提出パッケージ作成 | 🌐 「提出用の共有リンクを用意したい」 |
 
 
 ## 🎯 フェーズ別の使い分け
@@ -1080,41 +1075,41 @@ AI: ✅ ログ出力を修正しました！
 ### 🤔 「何を作るか決まってない」→ **Senseフェーズ**
 
 ```
-/aipm/1_sense/01_競合調査     # まず市場を知る
-/aipm/1_sense/02_顧客調査     # ユーザーを理解する
-/aipm/1_sense/07_オポチュニティ仮説抽出  # チャンスを見つける
+/aipm_1_01_sense_競合調査     # まず市場を知る
+/aipm_1_02_sense_顧客調査     # ユーザーを理解する
+/aipm_1_07_sense_オポチュニティ仮説抽出  # チャンスを見つける
 ```
 
 ### 💡 「アイデアはある、具体化したい」→ **Focusフェーズ**
 
 ```
-/aipm/2_focus/01_プロダクト定義      # 何を作るか明確に
-/aipm/2_focus/02_市場規模推定        # 売れるかどうか確認
-/aipm/2_focus/05_リーンキャンバス作成 # ビジネスモデル整理
+/aipm_2_01_focus_プロダクト定義      # 何を作るか明確に
+/aipm_2_02_focus_市場規模推定        # 売れるかどうか確認
+/aipm_2_05_focus_リーンキャンバス作成 # ビジネスモデル整理
 ```
 
 ### 🎨 「作るものは決まった、設計したい」→ **Discoveryフェーズ**
 
 ```
-/aipm/3_discovery/01_ペルソナ作成        # 誰のために作る？
-/aipm/3_discovery/04_ストーリーマップ    # どんな機能？
-/aipm/3_discovery/05_UIワイヤーフレーム  # どんな画面？
+/aipm_3_01_discovery_ペルソナ作成        # 誰のために作る？
+/aipm_3_04_discovery_ストーリーマップ    # どんな機能？
+/aipm_3_05_discovery_UIワイヤーフレーム  # どんな画面？
 ```
 
 ### 💻 「設計完了、実際に作りたい」→ **Deliveryフェーズ**
 
 ```
-/aipm/4_delivery/07_開発タスク分解       # 作業を分割
-/aipm/4_delivery/08_チケット開始         # 1つずつ実装
-/aipm/4_delivery/09_チケット実行と検証   # 動作確認
+/aipm_4_07_delivery_開発タスク分解       # 作業を分割
+/aipm_4_08_delivery_チケット開始         # 1つずつ実装
+/aipm_4_09_delivery_チケット実行と検証   # 動作確認
 ```
 
 ### 🏆 「完成した、発表・公開したい」→ **Hackathonフェーズ**
 
 ```
-/aipm/9_hackathon/Marpスライド生成      # プレゼン資料
-/aipm/9_hackathon/成果物パッケージング  # きれいに整理
-/aipm/9_hackathon/GitHub提出           # 世界に公開
+/aipm_9_01_hackathon_Marpスライド生成      # プレゼン資料
+/aipm_9_02_hackathon_成果物パッケージング  # きれいに整理
+/aipm_9_00_hackathon_GoogleDrive提出           # 提出用共有リンク作成
 ```
 
 ## 💡 迷ったときのコマンド選び
@@ -1123,42 +1118,42 @@ AI: ✅ ログ出力を修正しました！
 
 #### 😵 「何から始めればいいかわからない」
 
-→ `/aipm/0_initialize/00_プロジェクト開始` で環境準備  
-→ `/aipm/1_sense/01_競合調査` で市場を知る
+→ `/aipm_0_00_initialize_プロジェクト開始` で環境準備  
+→ `/aipm_1_01_sense_競合調査` で市場を知る
 
 #### 🤷 「アイデアはあるけど、需要があるかわからない」
 
-→ `/aipm/1_sense/02_顧客調査` でユーザーニーズ確認  
-→ `/aipm/2_focus/02_市場規模推定` で市場性検証
+→ `/aipm_1_02_sense_顧客調査` でユーザーニーズ確認  
+→ `/aipm_2_02_focus_市場規模推定` で市場性検証
 
 #### 🎨 「機能は決まったけど、どんな画面にすればいい？」
 
-→ `/aipm/3_discovery/01_ペルソナ作成` でユーザー像明確化  
-→ `/aipm/3_discovery/05_UIワイヤーフレーム` で画面設計
+→ `/aipm_3_01_discovery_ペルソナ作成` でユーザー像明確化  
+→ `/aipm_3_05_discovery_UIワイヤーフレーム` で画面設計
 
 #### 💻 「設計はできた、実際に作りたい」
 
-→ `/aipm/4_delivery/07_開発タスク分解` で作業計画  
-→ `/aipm/4_delivery/08_チケット開始` で実装開始
+→ `/aipm_4_07_delivery_開発タスク分解` で作業計画  
+→ `/aipm_4_08_delivery_チケット開始` で実装開始
 
 #### 🏆 「完成した、みんなに見せたい」
 
-→ `/aipm/9_hackathon/Marpスライド生成` でプレゼン準備  
-→ `/aipm/9_hackathon/GitHub提出` で世界に公開
+→ `/aipm_9_01_hackathon_Marpスライド生成` でプレゼン準備  
+→ `/aipm_9_00_hackathon_GoogleDrive提出` で提出用リンク作成
 
 #### 🏃 「ハッカソンで時間がない！」→ **高速開発パターン**
 
 ```
-/aipm/3_discovery/01_ペルソナ作成       # 15分でユーザー像確定
-/aipm/3_discovery/02_課題定義          # 20分で問題を深掘り
-/aipm/3_discovery/03_ソリューションマップ # 25分で解決策設計
-/aipm/3_discovery/04_ストーリーマップ   # 30分で機能具体化
-/aipm/4_delivery/07_開発タスク分解     # 20分で実装計画
-/aipm/4_delivery/08_チケット開始       # タスク別実装準備
-/aipm/4_delivery/09_チケット実行と検証  # 実装・動作確認
-/aipm/9_hackathon/Marpスライド生成     # 発表資料自動生成
-/aipm/9_hackathon/成果物パッケージング  # 提出物整理
-/aipm/9_hackathon/GitHub提出          # GitHub公開・PR作成
+/aipm_3_01_discovery_ペルソナ作成       # 15分でユーザー像確定
+/aipm_3_02_discovery_課題定義          # 20分で問題を深掘り
+/aipm_3_03_discovery_ソリューションマップ # 25分で解決策設計
+/aipm_3_04_discovery_ストーリーマップ   # 30分で機能具体化
+/aipm_4_07_delivery_開発タスク分解     # 20分で実装計画
+/aipm_4_08_delivery_チケット開始       # タスク別実装準備
+/aipm_4_09_delivery_チケット実行と検証  # 実装・動作確認
+/aipm_9_01_hackathon_Marpスライド生成     # 発表資料自動生成
+/aipm_9_02_hackathon_成果物パッケージング  # 提出物整理
+/aipm_9_00_hackathon_GoogleDrive提出          # 提出用リンク作成
 ```
 
 **特徴**: 市場調査（Sense）・戦略決定（Focus）をスキップして、設計（Discovery）→実装（Delivery）→発表・提出に集中
